@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lívia — Conteúdo exclusivo</title>
+<meta name="description" content="Página oficial da Lívia. Assine para acessar conteúdo exclusivo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="modal" id="age" hidden>
+  <div class="inner">
+    <h2>Conteúdo para adultos</h2>
+    <p>Este site contém material destinado exclusivamente a maiores de 18 anos. Você confirma que tem 18 anos ou mais?</p>
+    <div class="row"><button class="btn" id="ageYes">Tenho 18 anos ou mais</button><a class="btn ghost" href="https://www.google.com">Sair</a></div>
+  </div>
+</div>
+<header class="top"><div class="wrap"><a class="brand" href="/" id="brand">Lí<b>v</b>ia</a><nav id="nav"></nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div class="fade">
+    <span class="badge" id="ai"></span>
+    <h1 id="name">Lívia</h1>
+    <p class="lead" id="bio"></p>
+    <a class="btn" href="#planos">Assinar agora</a>
+  </div>
+  <div class="frame fade" id="hero"><span>Foto de destaque<br>(envie pelo painel administrativo)</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Por que assinar</h2><p class="sub">Tudo o que você recebe como assinante.</p>
+  <div class="grid benefits">
+    <div class="card"><h3>Galeria privada</h3><p>Fotos e vídeos disponíveis apenas para assinantes ativos.</p></div>
+    <div class="card"><h3>Novidades frequentes</h3><p>Conteúdo novo publicado regularmente na área de membros.</p></div>
+    <div class="card"><h3>Privacidade</h3><p>Cobrança discreta e acesso protegido por conta pessoal.</p></div>
+    <div class="card"><h3>Cancele quando quiser</h3><p>Sem fidelidade: cancele a renovação em um clique.</p></div>
+  </div>
+</div></section>
+
+<section id="previas"><div class="wrap">
+  <h2>Prévias</h2><p class="sub">Uma amostra do que espera por você.</p>
+  <div class="grid gallery" id="gallery"></div>
+</div></section>
+
+<section id="planos"><div class="wrap">
+  <h2>Escolha seu plano</h2><p class="sub">Valores, renovação e cancelamento transparentes.</p>
+  <div class="grid plans" id="plans"></div>
+  <p class="sub" style="margin-top:20px;font-size:.85rem">Ao assinar você concorda com os <a href="/legal.html?doc=termos">Termos de Uso</a>, a <a href="/legal.html?doc=privacidade">Política de Privacidade</a> e a <a href="/legal.html?doc=reembolso">política de cancelamento e reembolso</a>.</p>
+</div></section>
+</main>
+<footer id="footer"></footer>
+<script src="/app.js"></script>
+<script src="/home.js"></script>
+</body>
+</html>

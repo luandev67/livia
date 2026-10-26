@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrar — Lívia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"></head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">Lí<b>v</b>ia</a><nav id="nav"></nav></div></header>
+<main class="box fade">
+  <div class="tabs"><button id="tLogin" class="on">Entrar</button><button id="tReg">Criar conta</button><button id="tForgot">Esqueci a senha</button></div>
+
+  <form id="fLogin">
+    <h1>Entrar</h1>
+    <label for="le">E-mail</label><input id="le" type="email" autocomplete="email" required>
+    <label for="lp">Senha</label><input id="lp" type="password" autocomplete="current-password" required>
+    <p class="msg" id="mLogin"></p><button class="btn" style="width:100%;margin-top:8px">Entrar</button>
+  </form>
+
+  <form id="fReg" hidden>
+    <h1>Criar conta</h1>
+    <label for="rn">Nome (opcional)</label><input id="rn" autocomplete="name" maxlength="80">
+    <label for="re">E-mail</label><input id="re" type="email" autocomplete="email" required>
+    <label for="rp">Senha (mín. 8 caracteres)</label><input id="rp" type="password" autocomplete="new-password" minlength="8" required>
+    <label for="rb">Data de nascimento</label><input id="rb" type="date" required>
+    <label class="chk"><input id="ra" type="checkbox" required><span>Tenho 18 anos ou mais e aceito os <a href="/legal.html?doc=termos" target="_blank">Termos de Uso</a> e a <a href="/legal.html?doc=privacidade" target="_blank">Política de Privacidade</a>.</span></label>
+    <p class="msg" id="mReg"></p><button class="btn" style="width:100%">Criar conta</button>
+  </form>
+
+  <form id="fForgot" hidden>
+    <h1>Recuperar senha</h1>
+    <label for="fe">E-mail da conta</label><input id="fe" type="email" required>
+    <p class="msg" id="mForgot"></p><button class="btn" style="width:100%;margin-top:8px">Enviar link</button>
+  </form>
+</main>
+<script src="/app.js"></script>
+<script src="/entrar.js"></script>
+</body></html>

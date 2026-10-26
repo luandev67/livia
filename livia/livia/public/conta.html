@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minha conta — Lívia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"></head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">Lí<b>v</b>ia</a><nav id="nav"></nav></div></header>
+<main class="wrap" style="padding:40px 0">
+  <h2 style="font-size:2rem;margin-bottom:20px">Minha conta</h2>
+  <div class="grid benefits">
+    <div class="card"><h3>Perfil</h3><p id="profile"></p></div>
+    <div class="card"><h3>Assinatura</h3><p id="sub"></p><div class="row" style="margin-top:12px"><button class="btn small ghost" id="cancel" hidden>Cancelar renovação</button></div><p class="msg" id="mSub"></p></div>
+  </div>
+
+  <h2 style="margin:36px 0 12px;font-size:1.5rem" id="plansTitle">Planos</h2>
+  <div class="grid plans" id="plans"></div>
+  <div class="row" style="margin-top:14px"><input id="coupon" placeholder="Cupom promocional" style="max-width:240px" autocomplete="off"><span class="msg" id="mCoupon" style="margin:0"></span></div>
+
+  <h2 style="margin:36px 0 12px;font-size:1.5rem">Histórico de pagamentos</h2>
+  <div class="card scroll"><table><thead><tr><th>Data</th><th>Plano</th><th>Valor</th><th>Status</th></tr></thead><tbody id="pays"></tbody></table></div>
+
+  <h2 style="margin:36px 0 12px;font-size:1.5rem">Segurança</h2>
+  <div class="grid benefits">
+    <form class="card" id="fPass"><h3>Alterar senha</h3>
+      <label for="pc">Senha atual</label><input id="pc" type="password" autocomplete="current-password" required>
+      <label for="pn">Nova senha</label><input id="pn" type="password" minlength="8" autocomplete="new-password" required>
+      <p class="msg" id="mPass"></p><button class="btn small">Salvar</button></form>
+    <form class="card" id="fDel"><h3>Encerrar conta</h3><p>Exclui seus dados e cancela a renovação. Não pode ser desfeito.</p>
+      <label for="dp">Confirme sua senha</label><input id="dp" type="password" autocomplete="current-password" required>
+      <p class="msg" id="mDel"></p><button class="btn small ghost">Encerrar minha conta</button></form>
+  </div>
+</main>
+<footer id="footer"></footer>
+<script src="/app.js"></script>
+<script src="/conta.js"></script>
+</body></html>

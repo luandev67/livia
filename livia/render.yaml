@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: livia
+    runtime: node
+    plan: starter            # disco persistente exige plano pago
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/public
+    disk:
+      name: livia-data
+      mountPath: /var/data
+      sizeGB: 5
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PAYMENT_WEBHOOK_SECRET
+        sync: false
+      - key: BASE_URL
+        sync: false
