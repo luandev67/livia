@@ -1,3 +1,4 @@
+[hidden]{display:none!important}
 :root{--bg:#0b0709;--bg2:#140b10;--card:#1a0f15;--wine:#6b1230;--wine2:#8f1d45;--line:#2c1a22;--txt:#f4eef0;--mut:#b3a3a9;--ok:#5fd08a;--err:#ff7a8a}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
