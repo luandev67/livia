@@ -2,14 +2,11 @@ services:
   - type: web
     name: livia
     runtime: node
-    plan: starter            # disco persistente exige plano pago
+    plan: free           # disco persistente exige plano pago
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/public
-    disk:
-      name: livia-data
-      mountPath: /var/data
-      sizeGB: 5
+    
     envVars:
       - key: NODE_ENV
         value: production
