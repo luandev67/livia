@@ -31,13 +31,14 @@
 
   views.plans = async () => {
     const plans = await api('/api/admin/plans');
-    view.innerHTML = `<p class="sub">Preços em reais. O link de checkout é o da página hospedada do seu provedor; placeholders: {user_id} {plan_id} {email} {price} {coupon} {ref}.</p>` +
+    view.innerHTML = `<p class="sub">Preços em reais. Cole o link de checkout do produto na SigiloPay e o código da oferta correspondente. O site acrescenta o ID do cliente ao link automaticamente.</p>` +
       plans.map(p => `<form class="card" data-id="${p.id}" style="margin-bottom:14px"><div class="row">
         <div><label>Nome</label><input name="name" value="${esc(p.name)}"></div>
         <div><label>Preço (R$)</label><input name="price" type="number" step="0.01" min="0" value="${(p.price_cents / 100).toFixed(2)}"></div>
         <div><label>Duração (dias)</label><input name="duration_days" type="number" min="1" value="${p.duration_days}"></div></div>
         <label>Benefícios (um por linha)</label><textarea name="benefits" rows="4">${esc(JSON.parse(p.benefits).join('\n'))}</textarea>
         <label>Link de checkout do provedor</label><input name="checkout_url" value="${esc(p.checkout_url)}" placeholder="https://…?ref={ref}&user={user_id}&plan={plan_id}">
+        <label>Código da oferta (SigiloPay) — identifica este plano nos pagamentos</label><input name="offer_code" value="${esc(p.offer_code || '')}">
         <label>Texto de renovação</label><input name="renewal_text" value="${esc(p.renewal_text)}">
         <label>Texto de cancelamento</label><input name="cancel_text" value="${esc(p.cancel_text)}">
         <div class="row"><label class="chk"><input type="checkbox" name="vip" ${p.vip ? 'checked' : ''}> Plano VIP</label><label class="chk"><input type="checkbox" name="active" ${p.active ? 'checked' : ''}> Ativo</label>
@@ -46,7 +47,7 @@
       `<button class="btn small ghost" id="newPlan">+ Novo plano</button>`;
     const body = f => ({ id: +f.dataset.id || undefined, name: f.name.value, price_cents: Math.round(parseFloat(f.price.value || 0) * 100),
       duration_days: +f.duration_days.value, benefits: f.benefits.value.split('\n').map(s => s.trim()).filter(Boolean), checkout_url: f.checkout_url.value,
-      renewal_text: f.renewal_text.value, cancel_text: f.cancel_text.value, vip: f.vip.checked, active: f.active.checked, sort: +f.sort.value });
+      offer_code: f.offer_code.value, renewal_text: f.renewal_text.value, cancel_text: f.cancel_text.value, vip: f.vip.checked, active: f.active.checked, sort: +f.sort.value });
     view.querySelectorAll('form').forEach(f => f.onsubmit = async e => { e.preventDefault(); const m = f.querySelector('.msg');
       try { await api('/api/admin/plans', 'POST', body(f)); say(m, 'Salvo.', true); } catch (x) { say(m, x.message); } });
     $('#newPlan').onclick = async () => { await api('/api/admin/plans', 'POST', { name: 'Novo plano', price_cents: 1000, duration_days: 30, benefits: [], active: false }); load('plans'); };
